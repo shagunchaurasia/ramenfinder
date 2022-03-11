@@ -43,6 +43,8 @@ You will receive bonus points if you can include the following:
 
 ## Design
 
+Figma link: https://www.figma.com/file/OSQLQ2QW5NG9qJKbJjhHoT/frontend-assigment-shagun-chaurasia?node-id=0%3A1
+
 We have provided a Figma design for you to work from. You should match this as closely as possible but make any adjustments as necessary to complete your task in a timely manner.
 
 Any required assets should be exportable from the Figma design.
