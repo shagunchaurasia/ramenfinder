@@ -25,7 +25,7 @@ export const Card = ({id,allProps}: CardProps): JSX.Element => {
       </div>
 
       <div className="image-container">
-        <img src={allProps.photo.pc.l} alt="" className="image" />
+        <img src={allProps.photo.pc.l} alt="" className="image-box" />
       </div>
       <div className="description">{allProps.catch}</div>
 

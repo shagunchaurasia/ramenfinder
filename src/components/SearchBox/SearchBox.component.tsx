@@ -1,4 +1,5 @@
 import React from "react";
+import './SearchBox.style.scss';
 
 interface SearchBoxProps {
   //   onChangeHandler: React.InputHTMLAttributes<HTMLInputElement>.onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;

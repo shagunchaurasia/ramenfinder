@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Card from "components/Card";
 import SearchBox from "components/SearchBox";
 import "./Homepage.style.scss";
+import { ReactComponent as Logo } from "assets/images/ramen.svg";
+
 
 export const Homepage = (): JSX.Element => {
   const [ramenShops, setRamenShops] = useState<any[]>([]);
@@ -24,18 +26,21 @@ export const Homepage = (): JSX.Element => {
 
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event);
-    
   };
-
-
 
   return (
     <div>
-      <SearchBox
-        onChangeHandler={onSearchChange}
-        placeholderText="Filter by speciality, location or keyword..."
-        className="searchInput"
-      ></SearchBox>
+      <div className="header">
+        <h1 className="heading">TOKYO RAMEN FINDER</h1>
+        <Logo className="logo"></Logo>
+      </div>
+      <div className="searchInputContainer">
+        <SearchBox
+          onChangeHandler={onSearchChange}
+          placeholderText="Filter by speciality, location or keyword..."
+          className="searchInput"
+        ></SearchBox>
+      </div>
       <div className="row">
         {ramenShops &&
           ramenShops.map((ramenShop: any) => {

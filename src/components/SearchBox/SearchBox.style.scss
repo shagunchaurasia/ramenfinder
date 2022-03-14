@@ -1,0 +1,15 @@
+.searchInputContainer {
+  text-align: center;
+  margin-top: 30px;
+
+  .searchInput {
+    text-align: center;
+    height: 50px;
+    width: 500px;
+    background: #212121;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    outline: none;
+  }
+}
