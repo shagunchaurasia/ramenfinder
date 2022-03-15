@@ -1,8 +1,10 @@
+import CustomButton from "components/CustomButton";
 import React from "react";
 import "./Card.style.scss";
-
+import {ReactComponent as Star} from 'assets/images/star.svg';
 interface CardProps {
   id: string;
+  rank: number;
   allProps: {
     name: string;
     address: string;
@@ -12,7 +14,7 @@ interface CardProps {
   };
 }
 
-export const Card = ({id,allProps}: CardProps): JSX.Element => {
+export const Card = ({id,allProps,rank}: CardProps): JSX.Element => {
   return (
     <div className="card-container " id={id}>
       <div className="details">
@@ -21,7 +23,11 @@ export const Card = ({id,allProps}: CardProps): JSX.Element => {
           <div className="subtitle">{allProps.address}</div>
         </div>
 
-        <div className="rating-star"></div>
+        {/* <div className="rating-star">2</div> */}
+        <div>
+          <Star ></Star>
+          <span className="ranking">{rank}</span>
+        </div>
       </div>
 
       <div className="image-container">
@@ -29,7 +35,7 @@ export const Card = ({id,allProps}: CardProps): JSX.Element => {
       </div>
       <div className="description">{allProps.catch}</div>
 
-      <button className="findMore">Find Out More</button>
+      <CustomButton className="findMore" text="Find Out More" />
     </div>
   );
 };

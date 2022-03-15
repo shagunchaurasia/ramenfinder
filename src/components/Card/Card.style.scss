@@ -1,27 +1,28 @@
 .card-container {
-  height: 302.876953125px;
   border-radius: 8px;
   padding: 16px;
   background-color: #212121;
   cursor: pointer;
-  height: 350px;
+  height: 302.88px;
+  margin-top: 20px;
 
   .details {
     display: flex;
     justify-content: space-between;
-    height: 60px;
+    height: 100px;
 
     .name-address {
       display: flex;
       flex-direction: column;
+      width: 90%;
     }
 
     .title {
-      height: 30px;
+      height: 50px;
     }
 
     .subtitle {
-      height: 30px;
+      height: 50px;
       font-family: Roboto;
       font-size: 12px;
       font-style: normal;
@@ -29,11 +30,31 @@
       line-height: 14px;
       letter-spacing: 0em;
       text-align: left;
-      margin-top: 10px;
+      margin-top: 5px;
+    }
+
+    .star {
+      height: 50px;
+      width: 50px;
+    }
+
+    .ranking {
+      position: relative;
+      color: #212121;
+      top: -35%;
+      right: -31%;
+      font-size: 20px;
+      font-family: Righteous;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0em;
+      text-align: center;
     }
 
     .rating-star {
       background: #eaeaea;
+      color: black;
       width: 30px;
       height: 30px;
       position: relative;
@@ -41,7 +62,7 @@
     }
     .rating-star:before,
     .rating-star:after {
-      content: "";
+      content: attr();
       position: absolute;
       top: 0;
       left: 0;
@@ -57,11 +78,24 @@
     }
   }
 
+  // 350 - 50 + 10 + 150 + 10 + 50 + 50
+
   .image-container {
+    height: 137px;
+    width: 250px;
+    // justify-content: center;
+    display: flex;
+
+    // width: 250.24029541015625px;
     .image-box {
-      height: 137.876953125px;
-      width: 250.24029541015625px;
+      height: 100%;
+      width: 100%;
       border-radius: 0px;
     }
+  }
+
+  .description {
+    margin-top: 20px;
+    height: 50px;
   }
 }

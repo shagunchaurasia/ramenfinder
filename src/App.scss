@@ -40,6 +40,9 @@
 .App {
   background: #303030;
   color: white;
+  display: flex;
+  justify-content: center;
+  max-width: 980px;
 }
 
 .header {
