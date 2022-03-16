@@ -1,0 +1,1 @@
+export {CardListing as default} from './CardListing.component'

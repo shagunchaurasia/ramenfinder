@@ -22,10 +22,8 @@ export const Card = ({id,allProps,rank}: CardProps): JSX.Element => {
           <div className="title">{allProps.name}</div>
           <div className="subtitle">{allProps.address}</div>
         </div>
-
-        {/* <div className="rating-star">2</div> */}
         <div>
-          <Star ></Star>
+          <Star fill={`${rank === 1 ? "#f3ce72" : "#EAEAEA"}`}></Star>
           <span className="ranking">{rank}</span>
         </div>
       </div>

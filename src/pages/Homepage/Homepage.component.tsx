@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Card from "components/Card";
 import SearchBox from "components/SearchBox";
 import "./Homepage.style.scss";
 import { ReactComponent as Logo } from "assets/images/ramen.svg";
+import CardListing from "components/CardListing";
 
 export const Homepage = (): JSX.Element => {
   const [searchField, setSearchField] = useState("");
@@ -60,6 +60,8 @@ export const Homepage = (): JSX.Element => {
         <h1 className="heading">TOKYO RAMEN FINDER</h1>
         <Logo className="logo"></Logo>
       </div>
+
+
       <div className="searchInputContainer">
         <SearchBox
           onChangeHandler={onSearchChange}
@@ -67,19 +69,9 @@ export const Homepage = (): JSX.Element => {
           className="searchInput"
         ></SearchBox>
       </div>
-      <div className="row">
-        {filteredRamenShops &&
-          filteredRamenShops.map((ramenShop: any, index: number) => {
-            return (
-              <div
-                className="col-lg-4  col-md-6 col-sm-12 col-xs-12 card-"
-                key={ramenShop.id}
-              >
-                <Card id={ramenShop.id} allProps={ramenShop} rank={index + 1} />
-              </div>
-            );
-          })}
-      </div>
+
+
+      <CardListing filteredData={filteredRamenShops}></CardListing>
     </div>
   );
 };

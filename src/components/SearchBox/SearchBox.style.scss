@@ -12,5 +12,16 @@
     font-size: 16px;
     border-radius: 8px;
     outline: none;
+    border: none;
+  }
+
+  .searchInput::-webkit-search-cancel-button {
+    position: relative;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    background: #c06376;
+    
   }
 }
