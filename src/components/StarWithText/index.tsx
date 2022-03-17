@@ -1,0 +1,1 @@
+export {StarWithText as default} from './StartWithText'

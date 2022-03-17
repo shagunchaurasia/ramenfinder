@@ -1,7 +1,9 @@
 import CustomButton from "components/CustomButton";
+import StarWithText from "components/StarWithText";
 import React from "react";
 import "./Card.style.scss";
-import {ReactComponent as Star} from 'assets/images/star.svg';
+// import {ReactComponent as Star} from 'assets/images/star.svg';
+
 interface CardProps {
   id: string;
   rank: number;
@@ -14,7 +16,7 @@ interface CardProps {
   };
 }
 
-export const Card = ({id,allProps,rank}: CardProps): JSX.Element => {
+export const Card = ({ id, allProps, rank }: CardProps): JSX.Element => {
   return (
     <div className="card-container " id={id}>
       <div className="details">
@@ -23,8 +25,14 @@ export const Card = ({id,allProps,rank}: CardProps): JSX.Element => {
           <div className="subtitle">{allProps.address}</div>
         </div>
         <div>
-          <Star fill={`${rank === 1 ? "#f3ce72" : "#EAEAEA"}`}></Star>
+          {/* <Star fill={`${rank === 1 ? "#f3ce72" : "#EAEAEA"}`} title={rank.toString()}></Star>
           <span className="ranking">{rank}</span>
+           */}
+
+          <StarWithText
+            fill={`${rank === 1 ? "#f3ce72" : "#EAEAEA"}`}
+            text={rank.toString()}
+          ></StarWithText>
         </div>
       </div>
 
