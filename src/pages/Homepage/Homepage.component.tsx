@@ -9,7 +9,7 @@ export const Homepage = (): JSX.Element => {
   const [filteredRamenShops, setFilteredRamenShops] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  let api = `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
+  let api = `https://cors-ramen-heroku.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
   const fetchData = async () => {
     console.log("Inside fetch Data");
