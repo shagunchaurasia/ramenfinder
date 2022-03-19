@@ -41,12 +41,14 @@ export const Homepage = (): JSX.Element => {
   return (
     <div>
       <div className="row d-flex justify-content-center header">
-        <div className="col-lg-6 col-md-8 col-sm-8 col-xs-10">
-          <span className="heading ">TOKYO RAMEN FINDER</span>
-        </div>
-        <div className="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-          <Logo className="logo"></Logo>
-        </div>
+        {/* <div className=""> */}
+        <span className="heading col-lg-6 col-md-8 col-sm-8 col-xs-10">
+          TOKYO RAMEN FINDER
+        </span>
+        {/* </div> */}
+        {/* <div className="col-lg-1 col-md-1 col-sm-1 col-xs-1"> */}
+        <Logo className="col-lg-1 col-md-1 col-sm-1 col-xs-1 logo"></Logo>
+        {/* </div> */}
       </div>
 
       <div className="row d-flex justify-content-center">

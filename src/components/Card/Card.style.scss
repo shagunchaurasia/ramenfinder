@@ -3,7 +3,7 @@
   padding: 16px;
   background-color: #212121;
   cursor: pointer;
-  height: 315.88px;
+  height: 380px;
   margin-top: 20px;
 
   .details {
@@ -32,7 +32,7 @@
 
     .subtitle {
       font-family: Roboto;
-      font-size: 12px;
+      font-size: 13px;
       font-style: normal;
       font-weight: 400;
       line-height: 14px;
@@ -47,7 +47,7 @@
     .ranking {
       position: fixed;
       color: #212121;
-      right:0;
+      right: 0;
       // top: -50%;
       // right: -32%;
       font-size: 16px;
@@ -78,13 +78,41 @@
 
   .description {
     margin-top: 20px;
-    height: 28px;
+    height: 40px;
     font-family: Roboto;
-    font-size: 12px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0em;
     text-align: left;
+  }
+
+  .button-wrapper {
+    display: flex;
+    // justify-content: space-between;
+    margin-bottom: 35px;
+
+    .feature-icon-description {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid #c06376;
+      border-radius: 5px;
+      margin:0 5px 0 5px;
+      padding: 4px;
+      // background: #c06376;
+      box-shadow: 5px 5px 5px 0 #000, 5px 5px 5px 0 black;
+      box-sizing: border-box;
+      padding: 6px;
+
+      span {
+        font-size: 10px;
+      }
+    }
+
+    .grouped-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
