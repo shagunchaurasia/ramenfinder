@@ -10,11 +10,11 @@ interface SearchBoxProps {
 
 export const SearchBox = (props: SearchBoxProps): JSX.Element => {
   return (
-    <input
-      className={`search-box ${props.className}`}
-      type="search"
-      placeholder={props.placeholderText}
-      onChange={props.onChangeHandler}
-    />
+      <input
+        className={`search-box ${props.className}`}
+        type="search"
+        placeholder={props.placeholderText}
+        onChange={props.onChangeHandler}
+      />
   );
 };

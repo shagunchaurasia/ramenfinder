@@ -19,7 +19,7 @@ export const CardListing = ({ filteredData }: any): JSX.Element => {
           );
         })
       ) : (
-        <h1>Sorry no search found</h1>
+        <h3 className="noSearchFound">No Results Found. Try something else!</h3>
       )}
     </div>
   );

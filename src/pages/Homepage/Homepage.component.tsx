@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBox from "components/SearchBox";
 import "./Homepage.style.scss";
 import { ReactComponent as Logo } from "assets/images/ramen.svg";
+import  Loading  from "assets/images/loading.gif";
 import CardListing from "components/CardListing";
 
 export const Homepage = (): JSX.Element => {
@@ -12,7 +13,6 @@ export const Homepage = (): JSX.Element => {
   let api = `https://cors-ramen-heroku.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
   const fetchData = async () => {
-    console.log("Inside fetch Data");
     let params = "";
     if (searchField) {
       params = `&name=${searchField}`;
@@ -29,52 +29,43 @@ export const Homepage = (): JSX.Element => {
   };
 
   useEffect(() => {
-    console.log("Inside useEffect");
+    setLoading(true);
     fetchData()
       .then((response) => {
-        console.log("Response from fetchData", response);
         setFilteredRamenShops(response.results.shop);
-
-        // if (searchField !== "") {
-        //   console.log("Search field is set");
-        //   console.log("filtering data", filteredRamenShops);
-        //   const newFilteredRamenShops: any = filteredRamenShops.filter(
-        //     (ramenShop: any) => {
-        //       return (
-        //         ramenShop.name.toLocaleLowerCase().includes(searchField) ||
-        //         ramenShop.address.toLocaleLowerCase().includes(searchField) ||
-        //         (ramenShop.special &&
-        //           ramenShop.special.toLocaleLowerCase().includes(searchField))
-        //       );
-        //     }
-        //   );
-        //   console.log("Filtered shops", newFilteredRamenShops);
-        //   setFilteredRamenShops(newFilteredRamenShops);
-        // }
-
+        setLoading(false);
       })
       .catch(console.error);
   }, [searchField]);
 
   return (
     <div>
-      <div className="header">
-        <h1 className="heading">TOKYO RAMEN FINDER</h1>
-        <Logo className="logo"></Logo>
+      <div className="row d-flex justify-content-center header">
+        <div className="col-lg-6 col-md-8 col-sm-8 col-xs-10">
+          <span className="heading ">TOKYO RAMEN FINDER</span>
+        </div>
+        <div className="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+          <Logo className="logo"></Logo>
+        </div>
       </div>
 
-      <div className="searchInputContainer">
-        <SearchBox
-          onChangeHandler={onSearchChange}
-          placeholderText="Filter by speciality, location or keyword..."
-          className="searchInput"
-        ></SearchBox> 
+      <div className="row d-flex justify-content-center">
+        <div className="col-lg-7">
+          <SearchBox
+            onChangeHandler={onSearchChange}
+            placeholderText="Filter by speciality, location or keyword..."
+            className="searchInput"
+          ></SearchBox>
+        </div>
       </div>
-
-      <CardListing
-        filteredData={filteredRamenShops}
-        loading={loading}
-      ></CardListing>
+      {loading ? (
+        <img src={Loading} alt="loading..." className="loadingGif" />
+      ) : (
+        <CardListing
+          filteredData={filteredRamenShops}
+          loading={loading}
+        ></CardListing>
+      )}
     </div>
   );
 };
