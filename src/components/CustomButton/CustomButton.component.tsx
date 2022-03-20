@@ -3,17 +3,19 @@ import "./CustomButton.style.scss";
 
 interface ButtonProps {
   text: string;
-  className: string;
+  className?: string;
   id?: string;
-  allProps?: {
-    name: string;
-    address: string;
-    catch: string;
-    logo_image: string;     
-    photo: { pc: { l: string } };
-  };
+  onClickHandler?: () => {};
 }
 
-export const CustomButton = ({ text, className }: ButtonProps): JSX.Element => {
-  return <button className={className}>{text}</button>;
+export const CustomButton = ({
+  text,
+  className,
+  onClickHandler,
+}: ButtonProps): JSX.Element => {
+  return (
+    <button className={className} onClick={onClickHandler}>
+      {text}
+    </button>
+  );
 };

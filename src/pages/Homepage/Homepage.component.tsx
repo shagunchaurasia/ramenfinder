@@ -5,6 +5,7 @@ import Loading from "assets/images/loading.gif";
 import CardListing from "components/CardListing";
 import { getRequest } from "service/axios";
 import "./Homepage.style.scss";
+import ErrorDisplay from "components/ErrorDisplay";
 
 interface HomepageProps {}
 
@@ -14,6 +15,7 @@ export const Homepage: React.FunctionComponent<
   const [searchField, setSearchField] = useState("");
   const [filteredRamenShops, setFilteredRamenShops] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   let api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
@@ -23,8 +25,12 @@ export const Homepage: React.FunctionComponent<
       params = `&name=${searchField}`;
     }
     console.log(`${api}${params}`);
-    const data: any = await getRequest(`${api}${params}`);
-    return data.data;
+    try {
+      const data: any = await getRequest(`${api}${params}`);
+      return data.data;
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
 
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +69,9 @@ export const Homepage: React.FunctionComponent<
         </div>
       </div>
 
-      {loading ? (
+      {error ? (
+        <ErrorDisplay error={error}/>
+      ) : loading ? (
         <img src={Loading} alt="loading..." className="loadingGif" />
       ) : (
         <CardListing filteredData={filteredRamenShops}></CardListing>
