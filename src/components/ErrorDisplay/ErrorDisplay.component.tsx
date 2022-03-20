@@ -1,5 +1,5 @@
-import CustomButton from "components/CustomButton";
 import React from "react";
+import CustomButton from "components/CustomButton";
 import "./ErrorDisplay.style.scss";
 
 interface ErrorDisplayProps {

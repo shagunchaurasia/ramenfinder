@@ -15,7 +15,6 @@ $medium: 900px;
     @media screen and (max-width: $small) {
       font-size: 30px;
     }
-
   }
 }
 
@@ -24,7 +23,6 @@ $medium: 900px;
   height: 300px;
   width: 300px;
 }
-
 
 .searchInput {
   text-align: center;
@@ -41,4 +39,16 @@ $medium: 900px;
   position: relative;
   right: 20px;
   cursor: pointer;
+}
+
+.searchCount {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
 }

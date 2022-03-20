@@ -15,6 +15,7 @@ export const Homepage: React.FunctionComponent<
   const [searchField, setSearchField] = useState("");
   const [filteredRamenShops, setFilteredRamenShops] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [count, setCount] = useState(25000);
   const [error, setError] = useState(null);
 
   let api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
@@ -43,6 +44,7 @@ export const Homepage: React.FunctionComponent<
     fetchData()
       .then((response) => {
         setFilteredRamenShops(response.results.shop);
+        setCount(response.results.results_available);
         setLoading(false);
       })
       .catch(console.error);
@@ -68,9 +70,14 @@ export const Homepage: React.FunctionComponent<
           ></SearchBox>
         </div>
       </div>
+      
+      {count?  <div className="row d-flex justify-content-center">
+        <div className="col-lg-8 searchCount">Displaying the top 12 of {count} results</div>
+      </div>: null}
+     
 
       {error ? (
-        <ErrorDisplay error={error}/>
+        <ErrorDisplay error={error} />
       ) : loading ? (
         <img src={Loading} alt="loading..." className="loadingGif" />
       ) : (
