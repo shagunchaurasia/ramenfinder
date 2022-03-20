@@ -3,8 +3,13 @@ import CustomButton from "components/CustomButton";
 import StarWithText from "components/StarWithText";
 import "./Card.style.scss";
 import { RamenShop } from "typings/RamenShop";
+import FontAwesomeIcon from "components/FontAwesomeIcon";
 
-export const Card:React.FunctionComponent<RamenShop> = ({ id, allProps, rank }: RamenShop): JSX.Element => {
+export const Card: React.FunctionComponent<RamenShop> = ({
+  id,
+  allProps,
+  rank,
+}: RamenShop): JSX.Element => {
   return (
     <div className="card-container " id={id}>
       <div className="details">
@@ -26,71 +31,51 @@ export const Card:React.FunctionComponent<RamenShop> = ({ id, allProps, rank }: 
       <div className="description">{allProps.catch}</div>
       <div className="button-wrapper">
         {allProps.wifi === "あり" || allProps.wifi === "未確認" ? (
-          <div className="feature-icon-description">
-            <i className="fa-solid fa-wifi" />
-          </div>
+          <FontAwesomeIcon iconName="wifi" />
         ) : (
-          <div className="feature-icon-description fa-stack">
-            <i className="fa-solid fa-wifi fa-stack-1.5x"></i>
-            <i
-              className="fa-solid fa-slash fa-stack-1x"
-              style={{ color: "#c06376", top: "0px" }}
-            ></i>
-          </div>
+          <FontAwesomeIcon
+            iconName="wifi"
+            stacked="true"
+            strikeColor="#c06376"
+          />
         )}
 
         {allProps.non_smoking === "一部禁煙" ? (
-          <div className="feature-icon-description fa-stack">
-            <i className="fa-solid fa-smoking" />
-          </div>
+          <FontAwesomeIcon iconName="smoking" />
         ) : (
-          <div className="feature-icon-description fa-stack">
-            <i className="fa-solid fa-smoking fa-stack-1.5x"></i>
-            <i
-              className="fa-solid fa-slash fa-stack-1x"
-              style={{ color: "#c06376", top: "0px" }}
-            ></i>
-          </div>
+          <FontAwesomeIcon
+            iconName="smoking"
+            stacked="true"
+            strikeColor="#c06376"
+          />
         )}
         {allProps.english === "あり" ? (
-          <div className="feature-icon-description">
-            <i className="fa-solid fa-language"></i>
-          </div>
+          <FontAwesomeIcon iconName="language" />
         ) : (
-          <div className="feature-icon-description fa-stack">
-            <i className="fa-solid fa-language fa-stack-1.5x"></i>
-            <i
-              className="fa-solid fa-slash fa-stack-1x"
-              style={{ color: "#c06376", top: "0px" }}
-            ></i>
-          </div>
+          <FontAwesomeIcon
+            iconName="language"
+            stacked="true"
+            strikeColor="#c06376"
+          />
         )}
         {allProps.pet === "可" ? (
-          <div className="feature-icon-description">
-            <i className="fa-solid fa-dog" />
-          </div>
+          <FontAwesomeIcon iconName="dog" />
         ) : (
-          <div className="feature-icon-description fa-stack">
-            <i className="fa-solid fa-dog fa-stack-1.5x"></i>
-            <i
-              className="fa-solid fa-slash fa-stack-1x"
-              style={{ color: "#c06376", top: "0px" }}
-            ></i>
-          </div>
+          <FontAwesomeIcon
+            iconName="dog"
+            stacked="true"
+            strikeColor="#c06376"
+          />
         )}
 
         {allProps.karaoke === "あり" ? (
-          <div className="feature-icon-description">
-            <i className="fa-solid fa-microphone-lines"></i>
-          </div>
+          <FontAwesomeIcon iconName="microphone-lines" />
         ) : (
-          <div className="feature-icon-description fa-stack">
-            <i className="fa-solid fa-microphone-lines fa-stack-1.5x"></i>
-            <i
-              className="fa-solid fa-slash fa-stack-1x"
-              style={{ color: "#c06376", top: "0px" }}
-            ></i>
-          </div>
+          <FontAwesomeIcon
+            iconName="microphone-lines"
+            stacked="true"
+            strikeColor="#c06376"
+          />
         )}
       </div>
 

@@ -2,8 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders heading for the app', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const appContainer = screen.getByRole("appContainer");
+  expect(appContainer).toBeInTheDocument();
+  expect(appContainer).toHaveClass('App');
+  // expect(appContainer).toHaveStyle({'background':'#303030'});
 });

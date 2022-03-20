@@ -6,15 +6,17 @@ interface ButtonProps {
   className?: string;
   id?: string;
   onClickHandler?: () => {};
+  role?:string;
 }
 
 export const CustomButton = ({
   text,
   className,
   onClickHandler,
+  role
 }: ButtonProps): JSX.Element => {
   return (
-    <button className={className} onClick={onClickHandler}>
+    <button className={className} onClick={onClickHandler} role={role}>
       {text}
     </button>
   );

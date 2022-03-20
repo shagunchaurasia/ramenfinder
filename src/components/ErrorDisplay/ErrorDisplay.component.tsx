@@ -6,9 +6,11 @@ interface ErrorDisplayProps {
   error: string;
 }
 
-export const ErrorDisplay = ({ error }: ErrorDisplayProps) => {
+export const ErrorDisplay: React.FunctionComponent<ErrorDisplayProps> = ({
+  error,
+}: ErrorDisplayProps): JSX.Element => {
   return (
-    <div>
+    <div role="errorDisplay">
       <h3 className="noSearchFound">
         Something went wrong
         <code>{`<${error}>`}</code>
@@ -16,9 +18,10 @@ export const ErrorDisplay = ({ error }: ErrorDisplayProps) => {
       <div className="row">
         <h4>
           <CustomButton
+            role="reloadButton"
             text="RELOAD"
             className="reloadButton"
-            onClickHandler={() => (window.location = window.location)}
+            onClickHandler={() => window.location.reload}
           ></CustomButton>
         </h4>
       </div>

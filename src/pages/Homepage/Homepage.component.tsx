@@ -51,8 +51,8 @@ export const Homepage: React.FunctionComponent<
   }, [searchField]);
 
   return (
-    <>
-      <div className="d-flex justify-content-center header">
+    <div role="homepageContainer"> 
+      <div className="d-flex justify-content-center header" >
         <span className="heading col-lg-6 col-md-6 col-sm-6 col-xs-6">
           TOKYO RAMEN FINDER
         </span>
@@ -83,6 +83,6 @@ export const Homepage: React.FunctionComponent<
       ) : (
         <CardListing filteredData={filteredRamenShops}></CardListing>
       )}
-    </>
+    </div>
   );
 };

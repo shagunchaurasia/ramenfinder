@@ -10,4 +10,13 @@ axiosClient.defaults.timeout = 10000;
 export function getRequest(URL: string) {
   return axiosClient.get(`/${URL}`).then((response) => response);
 }
+
+
+export function postRequest(URL: string) {
+//Axios post request
+}
+
+export function putRequest(URL: string) {
+//Axios put request
+}
 export default axiosClient;
