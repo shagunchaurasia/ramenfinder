@@ -1,31 +1,10 @@
+import React from "react";
 import CustomButton from "components/CustomButton";
 import StarWithText from "components/StarWithText";
-import React from "react";
 import "./Card.style.scss";
-// import {ReactComponent as Star} from 'assets/images/star.svg';
+import { RamenShop } from "typings/RamenShop";
 
-interface CardProps {
-  id: string;
-  rank: number;
-  allProps: {
-    name: string;
-    address: string;
-    catch: string;
-    logo_image: string;
-    photo: { pc: { l: string } };
-    // あり -possible なし- none 未確認- unconfirmed
-    wifi: "あり" | "なし" | "未確認";
-    // 可 - possible 不可 - Impossible
-    pet: "可" | "不可";
-    // 一部禁煙 - partially non smoking 全面禁煙 - no smoking    禁煙席なし - no non smoking seat
-    non_smoking: "一部禁煙" | "全面禁煙" | "禁煙席なし";
-    // なし - No  あり- can be
-    karaoke: "なし" | "あり";
-    english: "あり" | "なし";
-  };
-}
-
-export const Card = ({ id, allProps, rank }: CardProps): JSX.Element => {
+export const Card:React.FunctionComponent<RamenShop> = ({ id, allProps, rank }: RamenShop): JSX.Element => {
   return (
     <div className="card-container " id={id}>
       <div className="details">

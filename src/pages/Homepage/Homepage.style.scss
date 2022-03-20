@@ -1,3 +1,6 @@
+$small: 450px;
+$medium: 900px;
+
 .header {
   margin-top: 60px;
 
@@ -8,13 +11,21 @@
     font-weight: 400;
     line-height: 90px;
     letter-spacing: 0em;
+
+    @media screen and (max-width: $small) {
+      font-size: 30px;
+    }
+
   }
 }
-.loadingGif{
+
+.loadingGif {
   margin-top: 100px;
   height: 300px;
   width: 300px;
 }
+
+
 .searchInput {
   text-align: center;
   height: 50px;
@@ -24,7 +35,6 @@
   border-radius: 8px;
   outline: none;
   border: none;
-  // width: 60%;
 }
 
 .searchInput::-webkit-search-cancel-button {

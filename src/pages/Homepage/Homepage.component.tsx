@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
 import SearchBox from "components/SearchBox";
-import "./Homepage.style.scss";
 import { ReactComponent as Logo } from "assets/images/ramen.svg";
-import  Loading  from "assets/images/loading.gif";
+import Loading from "assets/images/loading.gif";
 import CardListing from "components/CardListing";
+import { getRequest } from "service/axios";
+import "./Homepage.style.scss";
 
-export const Homepage = (): JSX.Element => {
+interface HomepageProps {}
+
+export const Homepage: React.FunctionComponent<
+  HomepageProps
+> = (): JSX.Element => {
   const [searchField, setSearchField] = useState("");
   const [filteredRamenShops, setFilteredRamenShops] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  let api = `https://cors-ramen-heroku.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
+  let api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
   const fetchData = async () => {
     let params = "";
@@ -18,12 +23,11 @@ export const Homepage = (): JSX.Element => {
       params = `&name=${searchField}`;
     }
     console.log(`${api}${params}`);
-    const data = await fetch(`${api}${params}`);
-    return data.json();
+    const data: any = await getRequest(`${api}${params}`);
+    return data.data;
   };
 
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event);
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
@@ -39,35 +43,31 @@ export const Homepage = (): JSX.Element => {
   }, [searchField]);
 
   return (
-    <div>
-      <div className="row d-flex justify-content-center header">
-        {/* <div className=""> */}
-        <span className="heading col-lg-6 col-md-8 col-sm-8 col-xs-10">
+    <>
+      <div className="d-flex justify-content-center header">
+        <span className="heading col-lg-6 col-md-6 col-sm-6 col-xs-6">
           TOKYO RAMEN FINDER
         </span>
-        {/* </div> */}
-        {/* <div className="col-lg-1 col-md-1 col-sm-1 col-xs-1"> */}
-        <Logo className="col-lg-1 col-md-1 col-sm-1 col-xs-1 logo"></Logo>
-        {/* </div> */}
+        <div className="col-lg-1 col-md-1  d-none d-sm-block">
+          <Logo className="logo"></Logo>
+        </div>
       </div>
 
       <div className="row d-flex justify-content-center">
         <div className="col-lg-7">
           <SearchBox
             onChangeHandler={onSearchChange}
-            placeholderText="Filter by speciality, location or keyword..."
+            placeholderText="Filter by specialty, location or keyword..."
             className="searchInput"
           ></SearchBox>
         </div>
       </div>
+
       {loading ? (
         <img src={Loading} alt="loading..." className="loadingGif" />
       ) : (
-        <CardListing
-          filteredData={filteredRamenShops}
-          loading={loading}
-        ></CardListing>
+        <CardListing filteredData={filteredRamenShops}></CardListing>
       )}
-    </div>
+    </>
   );
 };

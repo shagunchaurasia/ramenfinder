@@ -1,17 +1,18 @@
 import React from "react";
 import "./CardListing.style.scss";
 import Card from "components/Card";
+import { RamenShopListing } from "typings/RamenShop";
 
-interface CardListingProps {}
-
-export const CardListing = ({ filteredData }: any): JSX.Element => {
+export const CardListing = ({
+  filteredData,
+}: RamenShopListing): JSX.Element => {
   return (
     <div className="row">
       {filteredData && filteredData.length ? (
         filteredData.map((ramenShop: any, index: number) => {
           return (
             <div
-              className="col-lg-4  col-md-6 col-sm-12 col-xs-12 card-"
+              className="col-lg-4  col-md-6 col-sm-10 col-xs-10 "
               key={ramenShop.id}
             >
               <Card id={ramenShop.id} allProps={ramenShop} rank={index + 1} />
