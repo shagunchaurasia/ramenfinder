@@ -6,6 +6,4 @@ const config = {
   },
 };
 
-
-console.log("CONFIG FILE", env)
 export default config;
