@@ -71,7 +71,7 @@ export const Homepage: React.FunctionComponent<
         </div>
       </div>
 
-      {count ? (
+      {count && !error ? (
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8 searchCount">
             Displaying the top 12 of {count} results
