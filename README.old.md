@@ -76,5 +76,3 @@ We’d like you to submit the assignment within 10 days of receipt, but it shoul
 
 If you’re stuck, have questions or need more time please contact oskar.lindgren@oyojapan.co.jp.
 
-
-## Contributor : Shagun Chaurasia
