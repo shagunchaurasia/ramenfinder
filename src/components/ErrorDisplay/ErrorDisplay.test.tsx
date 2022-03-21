@@ -5,7 +5,7 @@ import {ErrorDisplay} from './ErrorDisplay.component'
 test("renders error display component", () => {
   render(<ErrorDisplay error="Test Error" />);
 
-  const errorDisplay = screen.getByRole("errorDisplay");
+  const errorDisplay = screen.getByTestId("errorDisplay");
   expect(errorDisplay).toBeInTheDocument();
 
 });
@@ -46,7 +46,7 @@ describe("page reloads when button is pressed", ()=>{
     render(<ErrorDisplay error="test error"></ErrorDisplay>)
     const reloadButton = screen.getByRole("reloadButton");
     fireEvent.click(reloadButton);
-    reloadFn(); // as defined above..
+    reloadFn(); 
     expect(window.location.reload).toHaveBeenCalled();
   });
 })

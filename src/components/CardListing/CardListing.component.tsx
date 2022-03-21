@@ -7,7 +7,7 @@ export const CardListing = ({
   filteredData,
 }: RamenShopListing): JSX.Element => {
   return (
-    <div className="row">
+    <div className="row" data-testid="cardListingContainer">
       {filteredData && filteredData.length ? (
         filteredData.map((ramenShop: any, index: number) => {
           return (

@@ -15,25 +15,12 @@ export const Homepage: React.FunctionComponent<
   const [searchField, setSearchField] = useState("");
   const [filteredRamenShops, setFilteredRamenShops] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [count, setCount] = useState(25000);
+  const [count, setCount] = useState(12);
   const [error, setError] = useState(null);
 
   const api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
-  const fetchData = async () => {
-    let params = "";
-    if (searchField) {
-      params = `&name=${searchField}`;
-    }
-    // console.log(`${api}${params}`);
-    try {
-      const data: any = await getRequest(`${api}${params}`);
-      return data.data;
-    } catch (err: any) {
-      setError(err.message);
-      return err;
-    }
-  };
+  
 
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
@@ -41,6 +28,19 @@ export const Homepage: React.FunctionComponent<
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      let params = "";
+      if (searchField) {
+        params = `&name=${searchField}`;
+      }
+      try {
+        const data: any = await getRequest(`${api}${params}`);
+        return data.data;
+      } catch (err: any) {
+        setError(err.message);
+        return err;
+      }
+    };
     setLoading(true);
     fetchData()
       .then((response) => {
@@ -48,10 +48,10 @@ export const Homepage: React.FunctionComponent<
         setCount(response.results.results_available);
         setLoading(false);
       })
-  }, [searchField]);
+  }, [searchField,api]);
 
   return (
-    <div role="homepageContainer">
+    <div data-testid="homepageContainer">
       <div className="d-flex justify-content-center header">
         <span className="heading col-lg-6 col-md-6 col-sm-6 col-xs-6">
           TOKYO RAMEN FINDER
@@ -71,7 +71,7 @@ export const Homepage: React.FunctionComponent<
         </div>
       </div>
 
-      {count && !error ? (
+      {count && !error && !loading ? (
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8 searchCount">
             Displaying the top {count < 12 ? count : 12} of {count} results
@@ -84,7 +84,9 @@ export const Homepage: React.FunctionComponent<
       ) : loading ? (
         <img src={Loading} alt="loading..." className="loadingGif" />
       ) : (
-        <CardListing filteredData={filteredRamenShops}></CardListing>
+        <CardListing
+          filteredData={filteredRamenShops}
+        ></CardListing>
       )}
     </div>
   );

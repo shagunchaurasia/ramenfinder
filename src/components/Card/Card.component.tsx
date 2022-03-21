@@ -11,7 +11,7 @@ export const Card: React.FunctionComponent<RamenShop> = ({
   rank,
 }: RamenShop): JSX.Element => {
   return (
-    <div className="card-container " id={id} role="cardContainer">
+    <div className="card-container " id={id} data-testid="cardContainer">
       <div className="details">
         <div className="name-address">
           <div className="title">{allProps.name}</div>

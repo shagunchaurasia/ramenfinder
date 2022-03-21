@@ -10,7 +10,7 @@ export const ErrorDisplay: React.FunctionComponent<ErrorDisplayProps> = ({
   error,
 }: ErrorDisplayProps): JSX.Element => {
   return (
-    <div role="errorDisplay">
+    <div data-testid="errorDisplay">
       <h3 className="noSearchFound">
         Something went wrong
         <code>{`<${error}>`}</code>

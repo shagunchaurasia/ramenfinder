@@ -31,7 +31,7 @@ describe("Card Component tests", () => {
   it("renders HomePage component", () => {
     render(<Card id="test" rank={1} allProps={allPropsDummy} />);
 
-    const cardContainer = screen.getByRole("cardContainer");
+    const cardContainer = screen.getByTestId("cardContainer");
     expect(cardContainer).toBeInTheDocument();
   });
 });
