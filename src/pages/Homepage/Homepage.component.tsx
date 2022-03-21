@@ -18,19 +18,20 @@ export const Homepage: React.FunctionComponent<
   const [count, setCount] = useState(25000);
   const [error, setError] = useState(null);
 
-  let api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
+  const api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
   const fetchData = async () => {
     let params = "";
     if (searchField) {
       params = `&name=${searchField}`;
     }
-    console.log(`${api}${params}`);
+    // console.log(`${api}${params}`);
     try {
       const data: any = await getRequest(`${api}${params}`);
       return data.data;
     } catch (err: any) {
       setError(err.message);
+      return err;
     }
   };
 
@@ -47,12 +48,11 @@ export const Homepage: React.FunctionComponent<
         setCount(response.results.results_available);
         setLoading(false);
       })
-      .catch(console.error);
   }, [searchField]);
 
   return (
-    <div role="homepageContainer"> 
-      <div className="d-flex justify-content-center header" >
+    <div role="homepageContainer">
+      <div className="d-flex justify-content-center header">
         <span className="heading col-lg-6 col-md-6 col-sm-6 col-xs-6">
           TOKYO RAMEN FINDER
         </span>
@@ -70,11 +70,14 @@ export const Homepage: React.FunctionComponent<
           ></SearchBox>
         </div>
       </div>
-      
-      {count?  <div className="row d-flex justify-content-center">
-        <div className="col-lg-8 searchCount">Displaying the top 12 of {count} results</div>
-      </div>: null}
-     
+
+      {count ? (
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-8 searchCount">
+            Displaying the top 12 of {count} results
+          </div>
+        </div>
+      ) : null}
 
       {error ? (
         <ErrorDisplay error={error} />
