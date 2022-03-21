@@ -9,6 +9,7 @@ The app is deployed at [Tokyo Ramen Finder](https://ramen-finder.herokuapp.com/)
 # Folder Structure Used
 
 
+
 CodeBase folder is placed inside **src/**
 
 **src**
@@ -48,6 +49,11 @@ CodeBase folder is placed inside **src/**
 
 **public** 
 It contains static files such as index.html, javascript library files, images, css and other assets.
+
+****
+**.env file is part of the repository (Typically it is not pushed but since this is a demo project, it has been kept in the folder structure)**
+
+****
 
 
 ### Contributor : Shagun Chaurasia (chaurasia.shagun@gmail.com)
