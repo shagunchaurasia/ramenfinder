@@ -5,11 +5,11 @@ interface FontAwesomeProps {
   stacked?: string;
   strikeColor?: string;
 }
-export const FontAwesomeIcon = ({
+export const FontAwesomeIcon:React.FunctionComponent<FontAwesomeProps> = ({
   iconName,
   stacked,
   strikeColor,
-}: FontAwesomeProps) => {
+}: FontAwesomeProps):JSX.Element => {
   return (
     <div
       className={`feature-icon-description ${

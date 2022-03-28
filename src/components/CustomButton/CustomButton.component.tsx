@@ -5,7 +5,7 @@ interface ButtonProps {
   text: string;
   className?: string;
   id?: string;
-  onClickHandler?: () => {};
+  onClickHandler?: () => void;
   role?:string;
 }
 

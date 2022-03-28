@@ -12,15 +12,14 @@ interface HomepageProps {}
 export const Homepage: React.FunctionComponent<
   HomepageProps
 > = (): JSX.Element => {
-  const [searchField, setSearchField] = useState("");
-  const [filteredRamenShops, setFilteredRamenShops] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [count, setCount] = useState(12);
-  const [error, setError] = useState(null);
+  const [searchField, setSearchField] = useState<string>("");
+  const [filteredRamenShops, setFilteredRamenShops] = useState<[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(12);
+  const [error, setError] = useState<null|string>(null);
 
   const api = `?key=f9dacf74bea74bda&large_area=Z011&format=json&count=12`;
 
-  
 
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();

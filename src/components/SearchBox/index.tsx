@@ -1,1 +1,5 @@
-export { SearchBox as default } from "./SearchBox.component";
+import React from "react";
+import { SearchBox } from "./SearchBox.component";
+
+export default React.memo(SearchBox);
+

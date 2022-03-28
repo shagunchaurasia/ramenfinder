@@ -1,1 +1,4 @@
-export {FontAwesomeIcon as default} from './FontAwesomeIcon.component';
+import React from 'react';
+import { FontAwesomeIcon } from './FontAwesomeIcon.component';
+
+export default React.memo(FontAwesomeIcon);

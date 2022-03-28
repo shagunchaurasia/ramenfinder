@@ -21,7 +21,7 @@ export const ErrorDisplay: React.FunctionComponent<ErrorDisplayProps> = ({
             role="reloadButton"
             text="RELOAD"
             className="reloadButton"
-            onClickHandler={() => window.location.reload}
+            onClickHandler={() => window.location.reload()}
           ></CustomButton>
         </h4>
       </div>

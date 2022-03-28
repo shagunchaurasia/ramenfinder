@@ -6,7 +6,10 @@ interface StarWithTextInterface {
   text: string;
 }
 
-export const StarWithText = ({ fill, text }: StarWithTextInterface) => {
+export const StarWithText = ({
+  fill,
+  text,
+}: StarWithTextInterface): JSX.Element => {
   return (
     <svg
       width="39"
