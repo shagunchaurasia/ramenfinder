@@ -1,4 +1,4 @@
-# TOKYO RAMEN FINDER (Oyo Frontend Assignment)
+# TOKYO RAMEN FINDER 
 
 The project **Tokyo Ramen Finder** has been initialized with [Create React App](https://github.com/facebook/create-react-app).
 
